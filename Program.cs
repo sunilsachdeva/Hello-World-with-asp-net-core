@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
 namespace ConsoleApplication
@@ -16,6 +17,8 @@ namespace ConsoleApplication
             var applicationHost = new WebHostBuilder();
             applicationHost.UseStartup<Startup>();
             applicationHost.UseKestrel();
+            //todo check the significance of this Middleware
+            applicationHost.UseContentRoot(Directory.GetCurrentDirectory());
             var host = applicationHost.Build();
 
             host.Run();

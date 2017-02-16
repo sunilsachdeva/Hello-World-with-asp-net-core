@@ -19,6 +19,7 @@ namespace ConsoleApplication
             //tis middleware i.e adding pipeline
             //todo: check how does it work?
             app.UseMvc();
+            app.UseDeveloperExceptionPage();
             app.Run(context => context.Response.WriteAsync("Hello World"));
         }
     }

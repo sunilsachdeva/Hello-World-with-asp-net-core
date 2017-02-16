@@ -3,10 +3,18 @@ namespace ConsoleApplication.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("home/index")]
-        public IActionResult Index()
+        //[Route("home/index")]
+        //public IActionResult Index()
+        //{
+        //    //return Content("Hello world from Controller!");
+        //    return View();
+        //}
+
+        [Route("home/index/{username?}")]
+        public IActionResult Index(string username = "you")
         {
-            return Content("Hello world from Controller!");
+            var greeting = new Greeting { UserName = username };
+            return View(greeting);
         }
     }
 }
